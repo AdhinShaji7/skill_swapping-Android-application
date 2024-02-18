@@ -1,0 +1,116 @@
+{% include 'adminheader.html'%}
+<style>
+    table {
+        color: black;
+        margin: auto;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+
+    input[type="text"] {
+        padding: 8px;
+        width: 100%;
+        background-color: transparent; /* Set background color to transparent */
+        box-sizing: border-box;
+    }
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 2000px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color :#3380cc;
+  color: black;
+}
+ 
+</style>
+  <!-- ======= Hero Section ======= -->
+   <section id="hero" class="hero" style="height:500px">
+
+
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url(static/assets/img/hero-carousel/img76.jpg);height:auto"><br><br><br><br><br><br>
+
+                  </div>
+
+    </div>
+
+  </section><!-- End Hero Section -->
+<h2 data-aos="fade-down" align="center" style="font-size:50px;color:black">Manage<span>Skills</span></h2>
+
+<form method='post' enctype="multipart/form-data">
+
+	<center>
+	{% if data['skillupdate'] %}
+	<table style="color:black;width:500px;  font-size: 20px;" >
+			<tr>
+				<th>Skill</th>
+				<td style="padding:20px"><input type="text" required="" value="{{data['skillupdate'][0]['skills']}}" name="skill" class="form-control"></td>
+			</tr>
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" required="" class="btn btn-success" name="sub1"></td>
+			</tr>
+		</table>
+	{%else%}
+		<table style="color:black;width:500px;font-size: 20px;">
+			<tr>
+				<th>Skill</th>
+				<td style="padding:20px"><input type="text" required="" pattern="[A-Za-z]{1,32}" name="skill" class="form-control"></td>
+			</tr>
+			
+			
+			<tr>
+				<td style="padding:20px" align="center" colspan="2"><input type="submit" required="" class="btn btn-success" name="sub"></td>
+			</tr>
+			</table>
+			</center>
+			</form>
+		{% endif %}
+
+<h1 align="center">View Skills</h1>
+
+<!-- 
+<div class="container">
+    <div class="card" style="width:700px"> -->
+ <div class="card"   background: transparent; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+
+<table align="center" id="customers" style="color:black"> 
+		<tr>
+			<th >Sl.no</th>
+			<th>Skills</th>
+			<th></th>
+			<th></th>
+
+		</tr>
+		{% for i in data['skillview'] %}
+		<tr>
+			<td >{{loop.index}}</td>
+			<td >{{i['skills']}}</td>
+			<td><a class="btn btn-success" href="?action=delete&sid={{i['skills_id']}}">Delete</a></td>
+			<td><a class="btn btn-danger" href="?action=update&sid={{i['skills_id']}}">Update</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	</div>
+	</div>
+
+{% include 'footer.html'%}
+		

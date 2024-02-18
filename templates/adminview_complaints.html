@@ -1,0 +1,79 @@
+{% include 'adminheader.html'%}
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 2000px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#3380cc;
+  color: white;
+}
+ 
+</style>
+  <!-- ======= Hero Section ======= -->
+   <section id="hero" class="hero" style="height:400px">
+
+
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url(static/assets/img/hero-carousel/img76.jpg);height:auto"><br><br><br><br><br><br>
+                  </div>
+
+    </div>
+
+  </section><!-- End Hero Section -->
+<form method="post">
+	<center>
+		<h5 data-aos="fade-down" align="center" style="font-size:50px;color:black">View<span>Complaints</span></h5>
+		<br><br>
+	<div class="card"   background: transparent; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+
+	<table style="width:1500px;color:black" id="customers">
+			<tr>
+				<th>User Name</th>
+				<th>Complaint</th>
+				<th>Date</th>
+				<th>Reply</th>	
+				
+			</tr>
+			<tbody>
+				{% for row in data['viewcomplaint'] %}
+				<tr>
+					<td>{{row['ufname']}} {{row['ulname']}}</td>
+					
+					<td><!-- <textarea rows="4" cols="50" readonly=""> --> {{row['complaint']}}<!-- </textarea> --></td>
+					<td>{{row['date']}}</td>
+					{% if row['reply']=='pending' %}
+					<td><textarea rows="4" cols="50" name="reply{{loop.index}}"> </textarea>
+					<input type="submit" name="submit{{loop.index}}" value="Send" class="btn btn-primary"></td>
+					{% else%}
+					<td><textarea rows="4" cols="50" readonly=""> {{row['reply']}}</textarea></td>
+					{% endif %}
+	
+				</tr>
+				{% endfor %}
+			</tbody>
+			
+		</table>
+		</div>
+                </div>
+	</center>
+	
+</form>
+{%include 'footer.html'%}

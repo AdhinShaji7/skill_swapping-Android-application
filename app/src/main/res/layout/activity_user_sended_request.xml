@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user_sended_request">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:paddingLeft="300dp"
+
+            app:srcCompat="@drawable/c" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="-400dp"
+            android:layout_marginTop="70dp"
+            android:text="Sended Request"
+            android:textAllCaps="true"
+            android:textColor="#FF9800"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <ListView
+        android:id="@+id/li_send_req"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    </TableLayout>
+</LinearLayout>

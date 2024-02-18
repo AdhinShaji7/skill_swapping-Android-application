@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user_add_skills"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        >
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="400dp"
+                android:layout_height="200dp"
+                android:paddingLeft="120dp"
+                app:srcCompat="@drawable/skill_logo" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="-400dp"
+                android:layout_marginTop="70dp"
+                android:text="Add Skill"
+                android:textAllCaps="true"
+                android:textColor="#FF9800"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:paddingBottom="6dp"
+        android:background="@drawable/curve"
+        android:layout_marginTop="30dp"
+        android:layout_weight="0" />
+
+
+
+    <Spinner
+
+        android:id="@+id/spinner2"
+        android:layout_marginTop="35dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:paddingTop="8dp"
+        android:background="@drawable/curve"
+        android:layout_weight="0" />
+        </TableLayout>
+    <Button
+        android:layout_marginTop="50dp"
+        android:id="@+id/button4"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/curve"
+        android:text="Add skill" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@drawable/icon4"  />
+
+</LinearLayout>

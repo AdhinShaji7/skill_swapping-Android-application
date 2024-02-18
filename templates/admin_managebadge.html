@@ -1,0 +1,118 @@
+{% include 'adminheader.html'%}
+<style>
+    table {
+        color: white;
+        margin: auto;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+
+    input[type="text"] {
+        padding: 8px;
+        width: 100%;
+        background-color: transparent; /* Set background color to transparent */
+        box-sizing: border-box;
+    }
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 2000px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#3380cc;
+  color: white;
+}
+ 
+</style>
+  <!-- ======= Hero Section ======= -->
+   <section id="hero" class="hero" style="height:400px">
+
+
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url(static/assets/img/hero-carousel/img76.jpg);height:auto"><br><br><br><br><br><br>
+                  </div>
+
+    </div>
+
+  </section><!-- End Hero Section -->
+  <h2 data-aos="fade-down" align="center" style="font-size:50px;color:black">Manage<span>BadgeorAchive</span></h2>
+<form method='post' enctype="multipart/form-data">
+	<center>
+	{% if data['catupdate'] %}
+	<table style="color:black;width:800px;font-size: 20px;">
+			<tr>
+				<th>BadgeorAchieve</th>
+				<td style="padding:20px"><input type="text" required="" value="{{data['catupdate'][0]['badgeorchive']}}" name="category" class="form-control"></td>
+			</tr>
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" required="" class="btn btn-success" name="sub1"></td>
+			</tr>
+		</table>
+	{%else%}
+		<table style="color:black;width:500px;font-size: 20px;" >
+			<tr>
+				<th>BadgeorAchieve</th>
+				<td style="padding:20px"><input type="text" required="" pattern="[A-Za-z]{1,32}" name="category" class="form-control"></td>
+			</tr>
+			
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" required="" class="btn btn-success" name="sub"></td>
+			</tr>
+			</table>
+			</center>
+			</form>
+		{% endif %}
+
+</p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url(static/assets/img/hero-carousel/hero-carousel-1.jpg)"></div>
+    </div>
+
+  </section><!-- End Hero Section -->
+<h1 align="center">ViewBadgeorAchieve</h1>
+
+
+
+		
+<table align="center"  style="width:1500px;color:black" id="customers"> 
+		<tr>
+			<th >Sl.no</th>
+			<th>BadgeorAchieve</th>
+            <th></th>
+            <th></th>			
+		</tr>
+		{% for i in data['catview'] %}
+		<tr>
+			<td >{{loop.index}}</td>
+			<td >{{i['badgeorchive']}}</td>
+			<td><a class="btn btn-danger" href="?action=delete&cid={{i['badgeorchive_id']}}">Delete</a></td>
+			<td><a class="btn btn-success" href="?action=update&cid={{i['badgeorchive_id']}}">Update</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+{% include 'footer.html'%}

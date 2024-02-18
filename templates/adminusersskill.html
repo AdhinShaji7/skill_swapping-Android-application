@@ -1,0 +1,61 @@
+{% include 'adminheader.html'%}
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 2000px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#3380cc;
+  color: black;
+}
+ 
+</style>
+  <!-- ======= Hero Section ======= -->
+   <section id="hero" class="hero" style="height:400px">
+
+
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url(static/assets/img/hero-carousel/img76.JPG);height:auto"><br><br><br><br><br><br>
+                  </div>
+
+    white
+  </section><!-- End Hero Section -->
+<h2 data-aos="fade-down" align="center" style="font-size:50px;color:black">User<span>Skill</span></h2>
+<div class="card"   background: transparent; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+<table align="center" style="width:1500px;color:black" id="customers"> 
+		<tr>
+			<th >Sl.no</th>
+			<th>Name</th>
+			<th>Skills</th>
+		
+			
+			
+		</tr>
+		{% for i in data['myskillview'] %}
+		<tr>
+			<td >{{loop.index}}</td>
+			<td >{{i['ufname']}} {{i['ulname']}}</td>
+			<td>{{i['skills']}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+</div>
+	{% include 'footer.html'%}
